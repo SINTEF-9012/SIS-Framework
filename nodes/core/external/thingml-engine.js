@@ -80,7 +80,7 @@ function compileAndUpload(node, callback, ctx) {
 
     //We Should install libaries first
     var path_to_ardui = "";
-    if (os.platform === "darwin") {
+    if (os.platform() === "darwin") {
         path_to_ardui = '/Applications/Arduino.app/Contents/MacOS/Arduino';
     } else {
         path_to_ardui = 'arduino';
@@ -94,6 +94,7 @@ function compileAndUpload(node, callback, ctx) {
 function installLibraries(node, path_to_ardui, tab, k, callback, ctx) {
     if (node.libraries !== undefined && node.libraries !== "") {
         console.log(JSON.stringify(tab));
+        console.log(path_to_ardui);
         if (k < tab.length) {
             console.log("installing library");
             var install = spawn(path_to_ardui, [
@@ -115,7 +116,7 @@ function installLibraries(node, path_to_ardui, tab, k, callback, ctx) {
             });
 
             install.on('error', (err) => {
-                console.log('Something went wrong with the compiler!' + err);
+                console.log('Something went wrong with the installation of libraries!' + err);
             });
 
             install.on('exit', (code) => {
@@ -160,7 +161,7 @@ function upload(node, path_to_ardui, callback, ctx) {
     });
 
     arduino.on('error', (err) => {
-        console.log('Something went wrong with the compiler!' + err);
+        console.log('Something went wrong with the upload!' + err);
     });
 
     arduino.on('exit', (code) => {

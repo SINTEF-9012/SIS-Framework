@@ -15,22 +15,30 @@
  **/
 
 
-module.exports = function(RED) {
+module.exports = function (RED) {
     "use strict";
     var SerialPort = require('serialport');
     var sport;
 
-    function connect(node){
+    function connect(node) {
         sport = new SerialPort(node.port, function (err) {
             if (err) {
                 console.log('Error serial: ', err.message);
-                node.status({fill:"red",shape:"dot",text:"error "});
+                node.status({
+                    fill: "red",
+                    shape: "dot",
+                    text: "error "
+                });
                 setTimeout(function () {
                     connect(node); //until it connects
-                },5000)
-            }else{
-                console.log('Connected to '+node.port);
-                node.status({fill:"green",shape:"dot",text:"connected "});
+                }, 5000)
+            } else {
+                console.log('Connected to ' + node.port);
+                node.status({
+                    fill: "green",
+                    shape: "dot",
+                    text: "connected "
+                });
             }
         });
     }
@@ -39,8 +47,8 @@ module.exports = function(RED) {
     // The main node definition - most things happen in here
     function thingmlNode(n) {
         // Create a RED node
-        RED.nodes.createNode(this,n);
-        this.port=n.port;
+        RED.nodes.createNode(this, n);
+        this.port = n.port;
 
         // copy "this" object in case we need it in context of callbacks of other functions.
         var node = this;
@@ -49,22 +57,22 @@ module.exports = function(RED) {
 
         // respond to inputs....
         this.on('input', function (msg) {
-            var m=Buffer.from(msg.payload+"");
-            sport.write(m,function(err){
+            var m = Buffer.from(msg.payload + "");
+            sport.write(m, function (err) {
                 if (err) {
                     return console.log('Error on write: ', err.message);
                 }
-                console.log('message written');
+                console.log('message written' + m);
             });
         });
 
         sport.on('data', function (data) {
-            var msg={};
-            msg.payload=data+"";
+            var msg = {};
+            msg.payload = data + "";
             node.send(msg);
         });
 
-        this.on("close", function() {
+        this.on("close", function () {
             sport.close(function (err) {
                 if (err) {
                     return console.log('Error on close: ', err.message);
@@ -76,6 +84,6 @@ module.exports = function(RED) {
 
     // Register the node by name. This must be called before overriding any of the
     // Node functions.
-    RED.nodes.registerType("thingml",thingmlNode);
+    RED.nodes.registerType("thingml", thingmlNode);
 
 }

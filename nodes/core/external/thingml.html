@@ -29,7 +29,7 @@
 
     <br/>
 
-    <div  class="form-row">
+    <div class="form-row">
         <label for="node-input-target"><i class="fa fa-cogs"></i> Compiler</label>
         <select id="node-input-target">
             <option value="java">java</option>
@@ -63,15 +63,15 @@
     </div>
 
     <div class="form-row node-text-editor-row">
-        <div style="height: 250px; min-height:150px;" class="node-text-editor" id="node-input-thingml-editor" ></div>
+        <div style="height: 250px; min-height:150px;" class="node-text-editor" id="node-input-thingml-editor"></div>
     </div>
 </script>
 
 
 <!-- Next, some simple help text is provided for the node.                   -->
 <script type="text/x-red" data-help-name="thingml">
-   <p>The ThingML approach is composed of i) a modeling language, ii) a set of tools and iii) a methodology. The modeling language combines well-proven software modeling constructs for the design and implementation of distributed reactive systems.</p>
-   <p>This component consumes a ThingML model and generates code in a target programming language (e.g., C, Java, javascript). This code is then compiled/interpreted and deployed on the selected host.</p>
+    <p>The ThingML approach is composed of i) a modeling language, ii) a set of tools and iii) a methodology. The modeling language combines well-proven software modeling constructs for the design and implementation of distributed reactive systems.</p>
+    <p>This component consumes a ThingML model and generates code in a target programming language (e.g., C, Java, javascript). This code is then compiled/interpreted and deployed on the selected host.</p>
 </script>
 
 <!-- Finally, the node type is registered along with all of its properties   -->
@@ -80,32 +80,53 @@
     RED.nodes.registerType('thingml', {
         category: 'external', // config nodes do not appear in the palette -- we render device boxes differentlycolor:"#fff0f0",
         defaults: {
-            name: {value: ""},
-            deviceId: {value: "Thing"},
-            target: {value:"nodejs"},
-            code: {value: ""},
-            port: {value: ""},
-            ardtype: {value: ""},
-            source: {value: ""},
-            cpu: {value: ""},
-            libraries:{value:""}
+            name: {
+                value: ""
+            },
+            deviceId: {
+                value: "Thing"
+            },
+            target: {
+                value: "nodejs"
+            },
+            code: {
+                value: ""
+            },
+            port: {
+                value: ""
+            },
+            ardtype: {
+                value: ""
+            },
+            source: {
+                value: ""
+            },
+            cpu: {
+                value: ""
+            },
+            libraries: {
+                value: ""
+            }
         },
         inputs: 1,
         outputs: 1,
         icon: "thingml_short.png",
-        color:"#FFFFFF",
+        color: "#FFFFFF",
         label: function () {
-            return this.name ||"thingml node";
+            return this.name || "thingml node";
         },
         labelStyle: function () {
             return this.name ? "node_label_italic" : "";
         },
-        oneditprepare: function() {
+        oneditprepare: function () {
             var that = this;
 
-            $("#node-input-target").on("change",function() {
-                if (this.value.indexOf("arduino") >=0) { $("#node-input-split").show();}
-                else { $("#node-input-split").hide();}
+            $("#node-input-target").on("change", function () {
+                if (this.value.indexOf("arduino") >= 0) {
+                    $("#node-input-split").show();
+                } else {
+                    $("#node-input-split").hide();
+                }
             });
 
             this.editor = RED.editor.createEditor({
@@ -114,14 +135,14 @@
                 value: $("#node-input-code").val()
             });
             RED.library.create({
-                url:"functions", // where to get the data from
-                type:"function", // the type of object the library is for
-                editor:that.editor, // the field name the main text body goes to
-                fields:['name','outputs']
+                url: "functions", // where to get the data from
+                type: "function", // the type of object the library is for
+                editor: that.editor, // the field name the main text body goes to
+                fields: ['name', 'outputs']
             });
             this.editor.focus();
         },
-        oneditsave: function() {
+        oneditsave: function () {
             $("#node-input-code").val(this.editor.getValue())
             delete this.editor;
         },

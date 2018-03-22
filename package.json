@@ -1,26 +1,30 @@
 {
-    "name"         : "SIS-Framework",
-    "version"      : "0.0.1",
-    "description"  : "Extension of Node-red with support for ThingML, Docker, distribution etc.",
-    "homepage"     : "",
-    "license"      : "Apache-2.0",
-    "repository"   : {
-        "type":"git",
-        "url":"https://github.com/SINTEF-9012/SIS-Framework.git"
+    "name": "SIS-Framework",
+    "version": "0.0.1",
+    "description": "Extension of Node-red with support for ThingML, Docker, distribution etc.",
+    "homepage": "",
+    "license": "Apache-2.0",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/SINTEF-9012/SIS-Framework.git"
     },
-    "main"         : "red/red.js",
-    "scripts"      : {
+    "main": "red/red.js",
+    "scripts": {
         "start": "node red.js",
         "test": "grunt",
         "build": "grunt build"
     },
-    "bin"          : {
+    "bin": {
         "node-red": "./red.js",
         "node-red-pi": "bin/node-red-pi"
     },
     "contributors": [
-        {"name": "The node-red team as baseline contributor"},
-        {"name": "Nicolas Ferry"}
+        {
+            "name": "The node-red team as baseline contributor"
+        },
+        {
+            "name": "Nicolas Ferry"
+        }
     ],
     "keywords": [
         "editor", "messaging", "iot", "flow", "fog", "Cloud"
@@ -29,64 +33,65 @@
         "basic-auth": "1.1.0",
         "bcryptjs": "2.4.0",
         "body-parser": "1.15.2",
-        "cheerio":"0.22.0",
+        "cheerio": "0.22.0",
         "clone": "2.1.0",
         "cookie-parser": "1.4.3",
-        "cors":"2.8.1",
-        "cron":"1.2.1",
+        "cors": "2.8.1",
+        "cron": "1.2.1",
         "express": "4.14.0",
-        "follow-redirects":"1.2.2",
+        "follow-redirects": "1.2.2",
         "fs-extra": "1.0.0",
-        "fs.notify":"0.0.4",
-        "i18next":"1.10.6",
-        "is-utf8":"0.2.1",
+        "fs.notify": "0.0.4",
+        "i18next": "1.10.6",
+        "is-utf8": "0.2.1",
         "js-yaml": "3.7.0",
-        "json-stringify-safe":"5.0.1",
-        "jsonata":"1.1.1",
+        "json-stringify-safe": "5.0.1",
+        "jsonata": "1.1.1",
         "media-typer": "0.3.0",
         "mqtt": "2.2.1",
         "mustache": "2.3.0",
         "nopt": "3.0.6",
-        "oauth2orize":"1.7.0",
-        "on-headers":"1.0.1",
-        "passport":"0.3.2",
-        "passport-http-bearer":"1.0.1",
-        "passport-oauth2-client-password":"0.1.2",
-        "raw-body":"2.2.0",
+        "oauth2orize": "1.7.0",
+        "on-headers": "1.0.1",
+        "passport": "0.3.2",
+        "passport-http-bearer": "1.0.1",
+        "passport-oauth2-client-password": "0.1.2",
+        "raw-body": "2.2.0",
         "semver": "5.3.0",
-        "sentiment":"2.1.0",
-        "uglify-js":"2.7.5",
+        "sentiment": "2.1.0",
+        "uglify-js": "2.7.5",
         "when": "3.7.7",
         "ws": "1.1.1",
-        "xml2js":"0.4.17",
-        "node-red-node-feedparser":"0.1.*",
-        "node-red-node-email":"0.1.*",
-        "node-red-node-twitter":"0.1.*",
-        "node-red-node-rbe":"0.1.*",
-        "dockerode":"2.4.3",
-        "walk":"2.3.9",
-        "mosca":"2.5.1",
+        "xml2js": "0.4.17",
+        "node-red-node-feedparser": "0.1.*",
+        "node-red-node-email": "0.1.*",
+        "node-red-node-twitter": "0.1.*",
+        "node-red-node-rbe": "0.1.*",
+        "dockerode": "2.4.3",
+        "walk": "2.3.9",
+        "mosca": "2.5.1",
         "sleep": "5.1.1",
-        "serialport": "5.0.0"
+        "serialport": "5.0.0",
+        "rio": "2.4.1"
     },
     "optionalDependencies": {
-        "bcrypt":"~1.0.1"
+        "bcrypt": "~1.0.1"
     },
     "devDependencies": {
         "grunt": "~1.0.1",
         "grunt-chmod": "~1.1.1",
         "grunt-cli": "~1.2.0",
-        "grunt-concurrent":"~2.3.1",
-        "grunt-contrib-clean":"~1.0.0",
+        "grunt-concurrent": "~2.3.1",
+        "grunt-contrib-clean": "~1.0.0",
         "grunt-contrib-compress": "~1.3.0",
-        "grunt-contrib-concat":"~1.0.1",
+        "grunt-contrib-concat": "~1.0.1",
         "grunt-contrib-copy": "~1.0.0",
         "grunt-contrib-jshint": "~1.1.0",
         "grunt-contrib-uglify": "~2.0.0",
-        "grunt-contrib-watch":"~1.0.0",
-        "grunt-jsonlint":"~1.1.0",
-        "grunt-nodemon":"~0.4.2",
-        "grunt-sass":"~1.2.1",
+        "grunt-contrib-watch": "~1.0.0",
+        "grunt-jsonlint": "~1.1.0",
+        "grunt-nodemon": "~0.4.2",
+        "grunt-sass": "~1.2.1",
         "grunt-simple-mocha": "~0.4.1",
         "mocha": "~3.2.0",
         "should": "^8.4.0",

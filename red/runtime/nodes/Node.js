@@ -130,6 +130,7 @@ Node.prototype.send = function(msg) {
             node = flows.get(this._wire);
             /* istanbul ignore else */
             if (node) {
+                //TODO: add data provenance stuff
                 node.receive(msg);
             }
             return;
