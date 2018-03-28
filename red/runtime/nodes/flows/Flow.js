@@ -90,7 +90,7 @@ function Flow(global, flow) {
                 if (flow.nodes.hasOwnProperty(id)) {
                     node = flow.nodes[id];
                     if (!node.subflow) {
-                        console.log(activeNodes[id]);
+                        console.log("Active nodes:::::::> "+activeNodes[id]);
                         if (!activeNodes[id]) {
 
                             var j = 0;
@@ -146,7 +146,7 @@ function Flow(global, flow) {
                     }
                 }
             }
-        }, node, activeNodes);
+        }, node, this.getActiveNodes);
     }
 
     this.stop = function (stopList) {
