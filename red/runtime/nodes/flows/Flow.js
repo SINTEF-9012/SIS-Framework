@@ -114,6 +114,8 @@ function Flow(global, flow) {
                                 j++;
                             }
 
+                        }else{
+                            console.log("Active nodes exist:::::::> "+activeNodes[id].id);
                         }
                     } else {
                         if (!subflowInstanceNodes[id]) {
