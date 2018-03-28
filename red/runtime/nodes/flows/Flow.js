@@ -90,7 +90,7 @@ function Flow(global, flow) {
                 if (flow.nodes.hasOwnProperty(id)) {
                     node = flow.nodes[id];
                     if (!node.subflow) {
-                        console.log("Active nodes:::::::> "+JSON.stringify(activeNodes[id]));
+                        console.log("Active nodes:::::::> "+activeNodes[id]);
                         if (!activeNodes[id]) {
 
                             var j = 0;
