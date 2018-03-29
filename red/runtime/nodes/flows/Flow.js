@@ -108,14 +108,14 @@ function Flow(global, flow) {
                                                 activeNodes[id] = newNode;
                                             }
                                         }, id);
-                                        break;
+                                        //break;
                                     }
                                 }
                                 j++;
                             }
 
                         }else{
-                            console.log("Active nodes exist:::::::> "+activeNodes[id].id);
+                            console.log("Active nodes exist:::::::> "+activeNodes[id].name);
                         }
                     } else {
                         if (!subflowInstanceNodes[id]) {
@@ -148,7 +148,7 @@ function Flow(global, flow) {
                     }
                 }
             }
-        }, node, this.getActiveNodes);
+        }, node, getActiveNodes);
     }
 
     this.stop = function (stopList) {
