@@ -107,6 +107,7 @@ function Flow(global, flow) {
                                             console.log("id : "+id);
                                             console.log("Type : "+node.type);
                                             console.log("node : "+JSON.stringify(node));
+                                            console.log("node : "+JSON.stringify(newNode));
                                             if (newNode) {
                                                 activeNodes[id] = newNode;
                                             }
