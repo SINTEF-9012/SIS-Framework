@@ -95,7 +95,7 @@ function Flow(global, flow) {
 
                             var j = 0;
                             while (j <= modules.length) {
-                                if (j == modules.length) {
+                                if (j === modules.length) {
                                     newNode = createNode(node.type, node);
                                     if (newNode) {
                                         activeNodes[id] = newNode;
@@ -104,7 +104,6 @@ function Flow(global, flow) {
                                     if (modules[j].id.indexOf(node.type) >= 0) { //if the type of the node being loaded is equal to the plugin name then use the plugin
                                         modules[j].module.deploy(node, function (node, id) {
                                             newNode = createNode(node.type, node);
-                                            console.log(JSON.stringify(newNode));
                                             if (newNode) {
                                                 activeNodes[id] = newNode;
                                             }
@@ -150,7 +149,6 @@ function Flow(global, flow) {
                 }
             }
         }, node, activeNodes);
-        console.log(":::::<> "+JSON.stringify(activeNodes));
     }
 
     this.stop = function (stopList) {
