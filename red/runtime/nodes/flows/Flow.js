@@ -95,7 +95,7 @@ function Flow(global, flow) {
 
                             var j = 0;
                             while (j <= modules.length) {
-                                if (j === modules.length) {
+                                if (j == modules.length) {
                                     newNode = createNode(node.type, node);
                                     if (newNode) {
                                         activeNodes[id] = newNode;
@@ -108,7 +108,7 @@ function Flow(global, flow) {
                                                 activeNodes[id] = newNode;
                                             }
                                         }, id);
-                                        //break;
+                                        break;
                                     }
                                 }
                                 j++;
