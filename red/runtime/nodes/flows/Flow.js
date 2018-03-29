@@ -104,6 +104,9 @@ function Flow(global, flow) {
                                     if (modules[j].id.indexOf(node.type) >= 0) { //if the type of the node being loaded is equal to the plugin name then use the plugin
                                         modules[j].module.deploy(node, function (node, id) {
                                             newNode = createNode(node.type, node);
+                                            console.log("id : "+id);
+                                            console.log("Type : "+node.type);
+                                            console.log("node : "+JSON.stringify(node));
                                             if (newNode) {
                                                 activeNodes[id] = newNode;
                                             }
