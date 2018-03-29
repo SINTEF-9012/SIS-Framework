@@ -149,7 +149,8 @@ function Flow(global, flow) {
                     }
                 }
             }
-        }, node, this.getActiveNodes());
+        }, node, activeNodes);
+        console.log(":::::<> "+JSON.stringify(activeNodes));
     }
 
     this.stop = function (stopList) {
