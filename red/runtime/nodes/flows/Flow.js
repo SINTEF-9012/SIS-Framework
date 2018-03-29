@@ -104,14 +104,9 @@ function Flow(global, flow) {
                                     if (modules[j].id.indexOf(node.type) >= 0) { //if the type of the node being loaded is equal to the plugin name then use the plugin
                                         modules[j].module.deploy(node, function (node, id) {
                                             newNode = createNode(node.type, node);
-                                            console.log("id : "+id);
-                                            console.log("Type : "+node.type);
-                                            console.log("node : "+JSON.stringify(node));
-                                            console.log("node : "+JSON.stringify(newNode));
                                             if (newNode) {
                                                 activeNodes[id] = newNode;
                                             }
-                                            console.log("length: "+JSON.stringify(activeNodes[id]));
                                         }, id);
                                         break;
                                     }
@@ -119,8 +114,6 @@ function Flow(global, flow) {
                                 j++;
                             }
 
-                        }else{
-                            console.log("Active nodes exist:::::::> "+activeNodes[id].name);
                         }
                     } else {
                         if (!subflowInstanceNodes[id]) {
@@ -142,7 +135,6 @@ function Flow(global, flow) {
                 }
             }
             for (id in activeNodes) {
-                console.log("--------------------->>: "+activeNodes[id].name);
                 if (activeNodes.hasOwnProperty(id)) {
                     node = activeNodes[id];
                     if (node.type === "catch") {
