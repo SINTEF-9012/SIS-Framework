@@ -111,6 +111,7 @@ function Flow(global, flow) {
                                             if (newNode) {
                                                 activeNodes[id] = newNode;
                                             }
+                                            console.log("length: "+activeNodes.length);
                                         }, id);
                                         break;
                                     }
