@@ -111,7 +111,7 @@ function Flow(global, flow) {
                                             if (newNode) {
                                                 activeNodes[id] = newNode;
                                             }
-                                            console.log("length: "+JSON.stringify(activeNodes));
+                                            console.log("length: "+JSON.stringify(activeNodes[id]));
                                         }, id);
                                         break;
                                     }
@@ -142,6 +142,7 @@ function Flow(global, flow) {
                 }
             }
             for (id in activeNodes) {
+                console.log("--------------------->>: "+activeNodes[id]);
                 if (activeNodes.hasOwnProperty(id)) {
                     node = activeNodes[id];
                     if (node.type === "catch") {
